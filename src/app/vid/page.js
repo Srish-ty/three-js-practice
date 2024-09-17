@@ -5,8 +5,8 @@ import {
   ThreeJSExample2,
   JSexm,
   JSexm2,
-} from "./components/threejs";
-import { ScrollAnimation } from "./components/practice1";
+} from "../components/threejs";
+import { ScrollAnimation } from "../components/practice1";
 
 export default function Home() {
   return (
