@@ -10,7 +10,6 @@ const ScrollZoomAni = () => {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    // Set up scene, camera, and renderer
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(
       75,
@@ -19,40 +18,56 @@ const ScrollZoomAni = () => {
       1000
     );
     const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(window.innerWidth - 20, window.innerHeight);
+    renderer.setSize(window.innerWidth - 20, window.innerHeight + 10);
     containerRef.current.appendChild(renderer.domElement);
 
-    // Create a sphere with more detailed geometry
-    const geo2 = new THREE.SphereGeometry(1, 32, 32); // Higher width and height segments for better visibility
+    // const geometry = new THREE.BoxGeometry(3, 2, 1);
+    // const material = new THREE.MeshBasicMaterial({
+    //   color: 0xff00ff,
+    //   wireframe: true,
+    // });
+    // const cube = new THREE.Mesh(geometry, material);
+
+    //new geo
+    const geo2 = new THREE.SphereGeometry(15, 12, 12);
     const mate2 = new THREE.MeshBasicMaterial({
-      color: 0x0000ff,
+      color: 0x24e3a3,
       wireframe: true,
     });
-    const sphere = new THREE.Mesh(geo2, mate2);
-    scene.add(sphere);
+    const cube2 = new THREE.Mesh(geo2, mate2);
 
-    // Adjust camera position further back
-    camera.position.z = 5;
+    // scene.add(cube);
+    scene.add(cube2);
 
-    // Animation loop
+    camera.position.z = 55;
+    camera.position.y = 0.5;
+    camera.position.x = 0.2;
+
     const animate = () => {
       requestAnimationFrame(animate);
       renderer.render(scene, camera);
     };
     animate();
 
-    // GSAP Scroll-triggered rotation
-    gsap.to(sphere.rotation, {
-      y: 6.28, // Full rotation (2 * Math.PI)
+    gsap.to(camera.position, {
+      z: 1, // zoom in to a closer position
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top top",
         end: "bottom bottom",
-        scrub: true, // Makes the animation smooth
+        scrub: true,
+      },
+    });
+    gsap.to(cube2.rotation, {
+      y: Math.PI,
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: true,
       },
     });
 
-    // Clean up the renderer on component unmount
     return () => {
       renderer.dispose();
       containerRef.current.removeChild(renderer.domElement);
@@ -61,5 +76,4 @@ const ScrollZoomAni = () => {
 
   return <div ref={containerRef} style={{ height: "200vh" }}></div>;
 };
-
 export default ScrollZoomAni;
