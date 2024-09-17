@@ -22,7 +22,7 @@ export const ScrollAnimation = () => {
     document.body.appendChild(renderer.domElement);
 
     const video = document.createElement("video");
-    video.src = "../vids/sd.mp4";
+    video.src = "/sd.mp4";
     video.loop = true;
     video.muted = true;
     video.play();

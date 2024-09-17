@@ -6,13 +6,12 @@ import {
   JSexm,
   JSexm2,
 } from "./components/threejs";
-import { ScrollAnimation } from "./components/practice1";
+import { ScrollAnimation } from "./components/practice";
 
 export default function Home() {
   return (
     <div>
       page
-      <ScrollAnimation />
       <ThreeJSExample />
       <ThreeJSExample2 />
       <JSexm />

@@ -6,17 +6,13 @@ import {
   JSexm,
   JSexm2,
 } from "../components/threejs";
-import { ScrollAnimation } from "../components/practice1";
+import { ScrollAnimation } from "../components/practice";
 
 export default function Home() {
   return (
     <div>
-      page
+      leaf vid on scroll
       <ScrollAnimation />
-      <ThreeJSExample />
-      <ThreeJSExample2 />
-      <JSexm />
-      <JSexm2 />
     </div>
   );
 }
