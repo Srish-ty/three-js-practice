@@ -6,7 +6,7 @@ import gsap from "gsap";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const ScrollAnimation = () => {
+export const ScrollVidAnimation = () => {
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export const ScrollAnimation = () => {
     document.body.appendChild(renderer.domElement);
 
     const video = document.createElement("video");
-    video.src = "/sd.mp4";
+    video.src = "../vids/sd.mp4";
     video.loop = true;
     video.muted = true;
     video.play();
@@ -61,5 +61,3 @@ export const ScrollAnimation = () => {
 
   return <div ref={videoRef} style={{ height: "200vh" }} />;
 };
-
-export default ScrollAnimation;

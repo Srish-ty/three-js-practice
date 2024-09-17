@@ -6,13 +6,14 @@ import {
   JSexm,
   JSexm2,
 } from "../components/threejs";
-import { ScrollAnimation } from "../components/practice";
+import { ScrollVidAnimation } from "../components/practice";
+import { ScrollAni } from "../components/onScroll";
 
 export default function Home() {
   return (
     <div>
       leaf vid on scroll
-      <ScrollAnimation />
+      <ScrollAni />
     </div>
   );
 }
