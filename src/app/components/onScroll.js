@@ -49,7 +49,7 @@ export const ScrollAni = () => {
     animate();
 
     gsap.to(cube.rotation, {
-      x: 6.28,
+      x: 3.5,
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top top",
@@ -59,7 +59,7 @@ export const ScrollAni = () => {
     });
 
     gsap.to(cube2.rotation, {
-      y: 6.28,
+      y: 3.5,
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top top",
