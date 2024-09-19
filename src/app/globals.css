@@ -25,3 +25,20 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Example styles */
+.loader-text {
+  font-size: 2rem;
+  text-align: center;
+}
+.main-loader {
+  position: relative;
+  height: 5px;
+  background: gray;
+}
+.main-loader-p {
+  position: absolute;
+  height: 100%;
+  background: black;
+  width: 0;
+}

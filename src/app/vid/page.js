@@ -1,19 +1,12 @@
 "use client";
-import Image from "next/image";
-import {
-  ThreeJSExample,
-  ThreeJSExample2,
-  JSexm,
-  JSexm2,
-} from "../components/threejs";
-import { ScrollVidAnimation } from "../components/practice";
-import { ScrollAni } from "../components/onScroll";
+import SmoothScrollAnimation from "./script";
 
 export default function Home() {
   return (
-    <div>
-      leaf vid on scroll
-      <ScrollAni />
+    <div className="h-[40vw] flex flex-col justify-center">
+      <div>
+        <SmoothScrollAnimation />
+      </div>
     </div>
   );
 }
