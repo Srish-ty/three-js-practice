@@ -7,10 +7,8 @@ const FrameAnimation = () => {
   const meshRef = useRef();
   const scroll = useScroll();
 
-  // Get the viewport size and aspect ratio
   const { viewport } = useThree();
 
-  // Load 212 images as textures using useMemo to cache the textures
   const textures = useMemo(() => {
     const loader = new TextureLoader();
     const frames = [];
@@ -33,11 +31,7 @@ const FrameAnimation = () => {
   });
 
   return (
-    <mesh
-      ref={meshRef}
-      position={[0, 0, 0]} // Keep the mesh centered at (0, 0, 0)
-    >
-      {/* Set geometry size to match the viewport */}
+    <mesh ref={meshRef} position={[0, 0, 0]}>
       <planeGeometry args={[viewport.width, viewport.height]} />
       <meshBasicMaterial />
     </mesh>
@@ -47,8 +41,7 @@ const FrameAnimation = () => {
 const SmoothScrollAnimation = () => {
   return (
     <Canvas>
-      {/* Increase the pages prop to extend the scroll height */}
-      <ScrollControls pages={10} damping={4}>
+      <ScrollControls pages={1} damping={0}>
         <FrameAnimation />
       </ScrollControls>
     </Canvas>
